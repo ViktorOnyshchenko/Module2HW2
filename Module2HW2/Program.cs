@@ -16,11 +16,28 @@ namespace Module2HW2
 
             Cart cart = new Cart();
             cart.AddProducts(storeService.SelectProducts());
-            cart.PrintProducts();
+
+            Console.WriteLine("Products in the cart: ");
+            for (int i = 0; i < cart.Products.Count; i++)
+            {
+                Console.WriteLine($"{i + 1} - {cart.Products[i].Name}");
+            }
 
             Order order = new Order(cart.Products);
-            order.PrintOrder();
+            Order order1 = new Order(cart.Products);
+            Console.WriteLine($"Order number: {order.OrderNumber}\nProducts in the order:");
+            for (int i = 0; i < order.Products.Count; i++)
+            {
+                Console.WriteLine($"{i + 1} - {order.Products[i].Name}");
+            }
+            Console.WriteLine($"Order date: {order.OrderDate}");
 
+            Console.WriteLine($"Order number: {order1.OrderNumber}\nProducts in the order:");
+            for (int i = 0; i < order1.Products.Count; i++)
+            {
+                Console.WriteLine($"{i + 1} - {order1.Products[i].Name}");
+            }
+            Console.WriteLine($"Order date: {order1.OrderDate}");
 
             Console.ReadKey();
         }

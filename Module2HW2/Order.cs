@@ -8,25 +8,31 @@ namespace Module2HW2
 {
     internal class Order
     {
-        private static int orderNumber = 1;
+        private static int orderCounter = 1;
+        private int orderNumber;
         private readonly List<Product> products;
         private readonly DateTime orderDate;
+
+        public int OrderNumber
+        {
+            get => orderNumber;
+        }
+
+        public List<Product> Products
+        {
+            get => products;
+        }
+
+        public DateTime OrderDate
+        {
+            get => orderDate;
+        }
 
         public Order(List<Product> products)
         {
             this.products = products;
             orderDate = DateTime.Now;
-            orderNumber++;
-        }
-
-        public void PrintOrder()
-        {
-            Console.WriteLine($"Order number: {orderNumber}\nProducts in the order:");
-            for (int i = 0; i < products.Count; i++)
-            {
-                Console.WriteLine($"{i + 1} - {products[i].Name}");
-            }
-            Console.WriteLine($"Order date: {orderDate}");
+            orderNumber = orderCounter++;
         }
     }
 }

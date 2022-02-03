@@ -19,17 +19,5 @@ namespace Module2HW2
         {
             this.products = products;
         }
-
-        public void PrintProducts()
-        {
-            if (Products.Any())
-            {
-                Console.WriteLine("Products in the cart: ");
-                for (int i = 0; i < products.Count; i++)
-                {
-                    Console.WriteLine($"{i + 1} - {products[i].Name}");
-                }
-            }
-        }
     }
 }

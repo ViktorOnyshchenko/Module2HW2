@@ -64,9 +64,10 @@ namespace Module2HW2
             bool isCorrect;
             do
             {
+                isCorrect = true;
                 Console.WriteLine("\nPlease select the product you want (write number product):");
-                isCorrect = int.TryParse(Console.ReadLine(), out entryProduct);
-                if (!isCorrect || !isExistProduct(ref entryProduct))
+                //isCorrect = int.TryParse(Console.ReadLine(), out entryProduct);
+                if (!int.TryParse(Console.ReadLine(), out entryProduct) || !isExistProduct(ref entryProduct))
                 {
                     isCorrect = false;
                     Console.WriteLine("Incorrect number of product!");
